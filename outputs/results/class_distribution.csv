@@ -1,0 +1,6 @@
+subset,benign,malignant,total,malignant_pct
+Full dataset,357,212,569,37.26
+Train (Stage 1),228,136,364,37.36
+Train after SMOTE (Stage 2),228,228,456,50.00
+Validation,57,34,91,37.36
+Test,72,42,114,36.84

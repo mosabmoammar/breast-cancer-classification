@@ -1,0 +1,70 @@
+﻿Preparing data (split -> scale -> SMOTE on train only)...
+                             benign  malignant  total  malignant_pct
+subset                                                              
+Full dataset                    357        212    569          37.26
+Train (Stage 1)                 228        136    364          37.36
+Train after SMOTE (Stage 2)     228        228    456          50.00
+Validation                       57         34     91          37.36
+Test                             72         42    114          36.84 
+
+Training 2 models x 2 stages...
+                 model               stage  n_train_samples  epochs_run  best_epoch  train_loss_at_best  val_loss_at_best
+0  Logistic Regression  Stage 1 (original)              364         334         304              0.0571            0.0743
+1                  ANN  Stage 1 (original)              364          78          48              0.0467            0.0754
+2  Logistic Regression     Stage 2 (SMOTE)              456         271         241              0.0562            0.0831
+3                  ANN     Stage 2 (SMOTE)              456          70          40              0.0483            0.0810 
+
+Train and test metrics (positive class = malignant):
+              model              stage split  accuracy  precision  recall     f1  roc_auc  fn  fp
+Logistic Regression Stage 1 (original) train    0.9835     0.9851  0.9706 0.9778   0.9971   4   2
+Logistic Regression Stage 1 (original)  test    0.9737     0.9756  0.9524 0.9639   0.9967   2   1
+                ANN Stage 1 (original) train    0.9863     0.9852  0.9779 0.9815   0.9975   3   2
+                ANN Stage 1 (original)  test    0.9737     0.9756  0.9524 0.9639   0.9974   2   1
+Logistic Regression    Stage 2 (SMOTE) train    0.9835     0.9779  0.9779 0.9779   0.9971   3   3
+Logistic Regression    Stage 2 (SMOTE)  test    0.9825     0.9762  0.9762 0.9762   0.9970   1   1
+                ANN    Stage 2 (SMOTE) train    0.9890     0.9853  0.9853 0.9853   0.9969   2   2
+                ANN    Stage 2 (SMOTE)  test    0.9825     0.9762  0.9762 0.9762   0.9974   1   1 
+
+Stage 1 vs Stage 2 (test set):
+              model    metric  Stage 1 (original)  Stage 2 (SMOTE)   delta
+Logistic Regression  accuracy              0.9737           0.9825  0.0088
+Logistic Regression precision              0.9756           0.9762  0.0006
+Logistic Regression    recall              0.9524           0.9762  0.0238
+Logistic Regression        f1              0.9639           0.9762  0.0123
+Logistic Regression   roc_auc              0.9967           0.9970  0.0003
+Logistic Regression        fn              2.0000           1.0000 -1.0000
+Logistic Regression        fp              1.0000           1.0000  0.0000
+                ANN  accuracy              0.9737           0.9825  0.0088
+                ANN precision              0.9756           0.9762  0.0006
+                ANN    recall              0.9524           0.9762  0.0238
+                ANN        f1              0.9639           0.9762  0.0123
+                ANN   roc_auc              0.9974           0.9974  0.0000
+                ANN        fn              2.0000           1.0000 -1.0000
+                ANN        fp              1.0000           1.0000  0.0000 
+
+Test patients misclassified by at least one run (P(malignant) per run):
+           true_class  Logistic Regression | Stage 1 (original)  ANN | Stage 1 (original)  Logistic Regression | Stage 2 (SMOTE)  ANN | Stage 2 (SMOTE)
+test_index                                                                                                                                             
+4              benign                                     0.550                     0.603                                  0.642                  0.728
+16          malignant                                     0.072                     0.032                                  0.097                  0.039
+112         malignant                                     0.449                     0.458                                  0.565                  0.710 
+
+Saved 7 result files to D:\IUG\Machine Learning\Projects\breast-cancer-classification\outputs\results
+Saved figures to D:\IUG\Machine Learning\Projects\breast-cancer-classification\outputs\figures
+
+[Optional] scikit-learn LogisticRegression sanity check (test set):
+ implementation              stage  accuracy  precision  recall     f1  roc_auc  fn  fp  agreement
+     PyTorch LR Stage 1 (original)    0.9737     0.9756  0.9524 0.9639   0.9967   2   1     0.9912
+scikit-learn LR Stage 1 (original)    0.9825     0.9762  0.9762 0.9762   0.9960   1   1     0.9912
+     PyTorch LR    Stage 2 (SMOTE)    0.9825     0.9762  0.9762 0.9762   0.9970   1   1     0.9912
+scikit-learn LR    Stage 2 (SMOTE)    0.9737     0.9535  0.9762 0.9647   0.9954   1   2     0.9912 
+
+[Optional] Stratified 5-fold CV on the training split:
+                                        accuracy_mean  accuracy_std  precision_mean  precision_std  recall_mean  recall_std  f1_mean  f1_std  roc_auc_mean  roc_auc_std
+model               stage                                                                                                                                              
+Logistic Regression Stage 1 (original)         0.9780        0.0208          0.9778         0.0331       0.9632      0.0262   0.9704  0.0281        0.9942       0.0073
+ANN                 Stage 1 (original)         0.9726        0.0274          0.9632         0.0371       0.9632      0.0454   0.9630  0.0377        0.9928       0.0099
+Logistic Regression Stage 2 (SMOTE)            0.9670        0.0229          0.9558         0.0312       0.9558      0.0406   0.9555  0.0317        0.9939       0.0071
+ANN                 Stage 2 (SMOTE)            0.9726        0.0274          0.9632         0.0371       0.9632      0.0454   0.9630  0.0377        0.9928       0.0099 
+
+Done.

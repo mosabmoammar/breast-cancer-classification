@@ -1,0 +1,9 @@
+model,stage,split,accuracy,precision,recall,f1,roc_auc,tn,fp,fn,tp,best_epoch,epochs_run
+Logistic Regression,Stage 1 (original),train,0.983516,0.985075,0.970588,0.977778,0.997098,226,2,4,132,304,334
+Logistic Regression,Stage 1 (original),test,0.973684,0.975610,0.952381,0.963855,0.996693,71,1,2,40,304,334
+ANN,Stage 1 (original),train,0.986264,0.985185,0.977941,0.981550,0.997485,226,2,3,133,48,78
+ANN,Stage 1 (original),test,0.973684,0.975610,0.952381,0.963855,0.997354,71,1,2,40,48,78
+Logistic Regression,Stage 2 (SMOTE),train,0.983516,0.977941,0.977941,0.977941,0.997065,225,3,3,133,241,271
+Logistic Regression,Stage 2 (SMOTE),test,0.982456,0.976190,0.976190,0.976190,0.997024,71,1,1,41,241,271
+ANN,Stage 2 (SMOTE),train,0.989011,0.985294,0.985294,0.985294,0.996904,226,2,2,134,40,70
+ANN,Stage 2 (SMOTE),test,0.982456,0.976190,0.976190,0.976190,0.997354,71,1,1,41,40,70

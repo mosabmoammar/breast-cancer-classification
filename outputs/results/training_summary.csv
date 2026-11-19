@@ -1,0 +1,5 @@
+model,stage,n_train_samples,epochs_run,best_epoch,train_loss_at_best,val_loss_at_best
+Logistic Regression,Stage 1 (original),364,334,304,0.057126,0.074262
+ANN,Stage 1 (original),364,78,48,0.046680,0.075399
+Logistic Regression,Stage 2 (SMOTE),456,271,241,0.056219,0.083059
+ANN,Stage 2 (SMOTE),456,70,40,0.048269,0.080957

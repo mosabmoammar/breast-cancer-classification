@@ -1,0 +1,18 @@
+# Virtual environment (recreate it with the README setup steps)
+.venv/
+
+# Python bytecode caches
+__pycache__/
+*.py[cod]
+
+# Jupyter autosave copies
+.ipynb_checkpoints/
+
+# Packaging / test tool artefacts
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+
+# Personal working documents kept out of version control
+docs/

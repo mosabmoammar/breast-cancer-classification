@@ -1,0 +1,4 @@
+test_index,true_class,Logistic Regression | Stage 1 (original),ANN | Stage 1 (original),Logistic Regression | Stage 2 (SMOTE),ANN | Stage 2 (SMOTE)
+4,benign,0.5495,0.6029,0.6415,0.7279
+16,malignant,0.0721,0.0317,0.0968,0.0385
+112,malignant,0.4494,0.4579,0.5651,0.7097

@@ -1,0 +1,20 @@
+# Minimal packaging file. Its only job is to make the `bcd` package (in src/)
+# importable from the notebook, the CLI script and the tests via
+# `pip install -e .`, so no file needs to manipulate sys.path.
+# Pinned dependencies live in requirements.txt.
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bcd"
+version = "1.0.0"
+description = "Breast cancer diagnosis: logistic regression vs ANN, with and without SMOTE"
+requires-python = ">=3.14"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,41 @@
+# ---------------------------------------------------------------------------
+# Single source of truth for every setting of the experiment.
+# Every value is explained in design/DECISIONS.md. Stage 1 and Stage 2 read the
+# SAME values; the only difference between the stages is `augmentation`.
+# ---------------------------------------------------------------------------
+
+seed: 42                 # used for random, numpy, torch, the splits and SMOTE
+deterministic: true      # torch.use_deterministic_algorithms(True)
+
+data:
+  test_size: 0.2         # stratified hold-out test split (final evaluation only)
+  val_size: 0.2          # stratified fraction of the remaining data used for validation
+
+augmentation:            # Stage 2 only, applied to the scaled training split
+  method: smote
+  k_neighbors: 5
+  sampling_strategy: 1.0 # minority/majority ratio after resampling (1.0 = 1:1)
+
+models:
+  logistic_regression:
+    weight_decay: 0.0    # plain logistic regression: no regularisation
+  ann:
+    hidden_sizes: [16, 8]
+    dropout: 0.2
+    weight_decay: 1.0e-4 # L2 penalty through Adam's weight_decay
+
+training:
+  learning_rate: 0.001
+  batch_size: 32
+  max_epochs: 500
+  patience: 30           # early stopping on validation loss
+  threshold: 0.5         # predict malignant when P(malignant) >= threshold
+
+optional:                # extra checks, kept out of the main results table
+  cv_folds: 5            # stratified k-fold on the training split
+  sklearn_lr_C: 1.0      # scikit-learn's default inverse L2 strength
+  sklearn_lr_max_iter: 5000
+
+paths:
+  figures: outputs/figures
+  results: outputs/results

@@ -1,0 +1,15 @@
+model,metric,Stage 1 (original),Stage 2 (SMOTE),delta
+Logistic Regression,accuracy,0.973684,0.982456,0.008772
+Logistic Regression,precision,0.975610,0.976190,0.000581
+Logistic Regression,recall,0.952381,0.976190,0.023810
+Logistic Regression,f1,0.963855,0.976190,0.012335
+Logistic Regression,roc_auc,0.996693,0.997024,0.000331
+Logistic Regression,fn,2.000000,1.000000,-1.000000
+Logistic Regression,fp,1.000000,1.000000,0.000000
+ANN,accuracy,0.973684,0.982456,0.008772
+ANN,precision,0.975610,0.976190,0.000581
+ANN,recall,0.952381,0.976190,0.023810
+ANN,f1,0.963855,0.976190,0.012335
+ANN,roc_auc,0.997354,0.997354,0.000000
+ANN,fn,2.000000,1.000000,-1.000000
+ANN,fp,1.000000,1.000000,0.000000

@@ -1,0 +1,21 @@
+model,stage,metric,train,test,gap
+Logistic Regression,Stage 1 (original),accuracy,0.983516,0.973684,0.009832
+Logistic Regression,Stage 1 (original),precision,0.985075,0.975610,0.009465
+Logistic Regression,Stage 1 (original),recall,0.970588,0.952381,0.018207
+Logistic Regression,Stage 1 (original),f1,0.977778,0.963855,0.013922
+Logistic Regression,Stage 1 (original),roc_auc,0.997098,0.996693,0.000404
+ANN,Stage 1 (original),accuracy,0.986264,0.973684,0.012580
+ANN,Stage 1 (original),precision,0.985185,0.975610,0.009575
+ANN,Stage 1 (original),recall,0.977941,0.952381,0.025560
+ANN,Stage 1 (original),f1,0.981550,0.963855,0.017694
+ANN,Stage 1 (original),roc_auc,0.997485,0.997354,0.000130
+Logistic Regression,Stage 2 (SMOTE),accuracy,0.983516,0.982456,0.001060
+Logistic Regression,Stage 2 (SMOTE),precision,0.977941,0.976190,0.001751
+Logistic Regression,Stage 2 (SMOTE),recall,0.977941,0.976190,0.001751
+Logistic Regression,Stage 2 (SMOTE),f1,0.977941,0.976190,0.001751
+Logistic Regression,Stage 2 (SMOTE),roc_auc,0.997065,0.997024,0.000041
+ANN,Stage 2 (SMOTE),accuracy,0.989011,0.982456,0.006555
+ANN,Stage 2 (SMOTE),precision,0.985294,0.976190,0.009104
+ANN,Stage 2 (SMOTE),recall,0.985294,0.976190,0.009104
+ANN,Stage 2 (SMOTE),f1,0.985294,0.976190,0.009104
+ANN,Stage 2 (SMOTE),roc_auc,0.996904,0.997354,-0.000450

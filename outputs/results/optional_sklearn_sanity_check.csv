@@ -1,0 +1,5 @@
+implementation,stage,accuracy,precision,recall,f1,roc_auc,fn,fp,agreement
+PyTorch LR,Stage 1 (original),0.973684,0.975610,0.952381,0.963855,0.996693,2,1,0.991228
+scikit-learn LR,Stage 1 (original),0.982456,0.976190,0.976190,0.976190,0.996032,1,1,0.991228
+PyTorch LR,Stage 2 (SMOTE),0.982456,0.976190,0.976190,0.976190,0.997024,1,1,0.991228
+scikit-learn LR,Stage 2 (SMOTE),0.973684,0.953488,0.976190,0.964706,0.995370,1,2,0.991228
